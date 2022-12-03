@@ -1,12 +1,22 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import GlobalEmotionStyles from '../GlobalEmotionStyles';
 
 const App: FC = () => {
+  const [direction, setDirection] = useState<boolean>(true);
+
+  // useEffect(() => {
+  //   setDirection(localStorage.getItem('lang') as string);
+
+  //   // return () => {
+
+  //   // };
+  // }, [localStorage.getItem('lang')]);
+
   return (
     <>
       <GlobalEmotionStyles />
 
-      <div className="container">
+      <div className="container" dir={direction ? 'ltr' : 'rtl'}>
         <div className="nav">
           <span>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit
@@ -126,7 +136,9 @@ const App: FC = () => {
             quia.
           </span>
         </div>
-        <div className="header"></div>
+        <div className="header">
+          <button onClick={() => setDirection(!direction)}>ali</button>
+        </div>
         <div className="section">
           <p>
             <span>
