@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const resetStyles = css`
+const resetStyles = css`
   /* Box sizing rules */
   *,
   *::before,
@@ -77,7 +77,7 @@ export const resetStyles = css`
   }
 `;
 
-export const normalizeStyles = css`
+const normalizeStyles = css`
   /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
   /* Document
@@ -430,3 +430,5 @@ export const normalizeStyles = css`
     display: none;
   }
 `;
+
+export { resetStyles, normalizeStyles };

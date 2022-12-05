@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import { Global } from '@emotion/react';
-import { normalizeStyles, resetStyles } from './styles';
+import { normalizeStyles, resetStyles } from './styled';
 
-const GlobalEmotionStyles = () => {
+const GlobalEmotionStyles: FC = () => {
   return (
     <>
       <Global styles={resetStyles} />
