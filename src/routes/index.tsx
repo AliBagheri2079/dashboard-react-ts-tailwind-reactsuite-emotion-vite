@@ -1,5 +1,5 @@
 import Layout from '@/layouts';
-// import PageOn from '@/pages';
+import Products from '@/pages/Products';
 
 /*
 ? I know routes folder created for routing in server but
@@ -8,8 +8,7 @@ import Layout from '@/layouts';
 const ManageRouting = () => {
   return (
     <Layout>
-      <div></div>
-      {/* <PageOn /> */}
+      <Products />
     </Layout>
   );
 };
