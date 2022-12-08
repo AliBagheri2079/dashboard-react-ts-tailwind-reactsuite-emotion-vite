@@ -1,7 +1,7 @@
 import { Container, CustomProvider } from 'rsuite';
 
 import Slider from '@/layouts/Slider';
-import TagSelect from '@/components/TagPicker';
+import TagSelect from '@/components/TagSelect';
 import ShopItems from '@/layouts/ShopItems';
 import './index.css';
 
