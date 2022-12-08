@@ -4,6 +4,7 @@ export const Button = styled('button')(
   {
     all: 'inherit',
     cursor: 'pointer',
+    textDecoration: 'unset !important',
   },
   (props) => ({
     fontSize: props.fontSize,

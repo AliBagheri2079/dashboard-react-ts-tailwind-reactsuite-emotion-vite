@@ -6,9 +6,9 @@ type Props = {
 
 const HeadTitle = (props: Props) => {
   return (
-    <h3 className="header__title">
+    <h5 className="header__title">
       Welcome back, <em>{props.username}</em>!
-    </h3>
+    </h5>
   );
 };
 

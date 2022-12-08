@@ -6,4 +6,5 @@ export const HeaderItems = styled('div')`
   align-items: center;
   justify-content: space-between;
   padding-inline: 10px;
+  border-bottom: 1px solid;
 `;
