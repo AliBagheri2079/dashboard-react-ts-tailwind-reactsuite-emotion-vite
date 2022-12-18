@@ -1,20 +1,25 @@
 import { FC, useEffect, useTransition } from 'react';
-import { observer } from 'mobx-react-lite';
+import { useRecoilState, useResetRecoilState } from 'recoil';
 import Content from 'rsuite/Content';
 import Grid from 'rsuite/Grid';
 import Row from 'rsuite/Row';
 
 import ShopCardItem from '@/components/ShopCard/Item';
 import ShopCardPlaceholder from '@/components/ShopCard/Placeholder';
-import shopItemsStore from '@/store/mobx/ShopItemsStore';
+import { getShopItems } from '@/services/getShopItems';
+import { shopItemsState } from '@/store/recoil/atom';
 
 const ShopItems: FC = () => {
   const [isPending, startTransition] = useTransition();
+  const [shopItem, setShopItem] = useRecoilState(shopItemsState);
+  const resetShopItem = useResetRecoilState(shopItemsState);
 
   useEffect(() => {
     startTransition(() => {
-      shopItemsStore.loadShopItems();
+      getShopItems().then((item) => setShopItem(item));
     });
+
+    return () => resetShopItem();
   }, []);
 
   return (
@@ -24,7 +29,7 @@ const ShopItems: FC = () => {
           {isPending ? (
             <ShopCardPlaceholder />
           ) : (
-            <ShopCardItem items={shopItemsStore.shopItemsList} />
+            <ShopCardItem items={shopItem} />
           )}
         </Row>
       </Grid>
@@ -32,4 +37,4 @@ const ShopItems: FC = () => {
   );
 };
 
-export default observer(ShopItems);
+export default ShopItems;

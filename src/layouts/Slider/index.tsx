@@ -1,20 +1,25 @@
 import { FC, useEffect, useTransition } from 'react';
-import { observer } from 'mobx-react-lite';
+import { useRecoilState, useResetRecoilState } from 'recoil';
 import Header from 'rsuite/Header';
 import FlexboxGrid from 'rsuite/FlexboxGrid';
 import Col from 'rsuite/Col';
 
 import SlidePlaceholder from '@/components/Slide/Placeholder';
 import SlideItem from '@/components/Slide/Item';
-import sliderStore from '@/store/mobx/SliderStore';
+import { getSlider } from '@/services/getSlider';
+import { sliderState } from '@/store/recoil/atom';
 
 const Slider: FC = () => {
   const [isPending, startTransition] = useTransition();
+  const [sliderItem, setSliderItem] = useRecoilState(sliderState);
+  const resetSliderItem = useResetRecoilState(sliderState);
 
   useEffect(() => {
     startTransition(() => {
-      sliderStore.loadSlider();
+      getSlider().then((slide) => setSliderItem(slide));
     });
+
+    return () => resetSliderItem();
   }, []);
 
   return (
@@ -31,15 +36,11 @@ const Slider: FC = () => {
           lg={12}
           style={{ height: '100%' }}
         >
-          {isPending ? (
-            <SlidePlaceholder />
-          ) : (
-            <SlideItem items={sliderStore.sliderItem} />
-          )}
+          {isPending ? <SlidePlaceholder /> : <SlideItem items={sliderItem} />}
         </FlexboxGrid.Item>
       </FlexboxGrid>
     </Header>
   );
 };
 
-export default observer(Slider);
+export default Slider;

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 import Col from 'rsuite/Col';
 import Panel from 'rsuite/Panel';
 import Rate from 'rsuite/Rate';
@@ -7,15 +8,18 @@ import Button from 'rsuite/Button';
 import CheckOutlineIcon from '@rsuite/icons/CheckOutline';
 
 import { ShopCardType } from '@/@types/types';
+import { allShopItemsState } from '@/store/recoil/selector';
 
 type Props = {
   items: ShopCardType[];
 };
 
 const ShopCardItem: FC<Props> = ({ items }) => {
+  const shopItems = useRecoilValue(allShopItemsState);
+
   return (
     <>
-      {items.map(
+      {shopItems?.map(
         ({ id, title, price, category, description, image, rating }) => (
           <Col key={id} xs={24} sm={12} md={8} lg={6} xl={4}>
             <Panel shaded bordered bodyFill style={{ marginBlockEnd: '10px' }}>

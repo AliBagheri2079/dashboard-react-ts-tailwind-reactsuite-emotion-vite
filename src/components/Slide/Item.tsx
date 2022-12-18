@@ -1,13 +1,17 @@
 import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 import Carousel from 'rsuite/Carousel';
 
-import { CarouselType } from '@/@types/types';
+import { SliderType } from '@/@types/types';
+import { allSliderState } from '@/store/recoil/selector';
 
 type Props = {
-  items: CarouselType[];
+  items: SliderType[];
 };
 
 const SlideItem: FC<Props> = ({ items }) => {
+  const sliders = useRecoilValue(allSliderState);
+
   return (
     <Carousel
       key="bar"
@@ -17,7 +21,7 @@ const SlideItem: FC<Props> = ({ items }) => {
       className="custom-slider"
       style={{ height: '100%' }}
     >
-      {items?.map(({ id, image }) => (
+      {sliders?.map(({ id, image }) => (
         <img key={id} src={image} />
       ))}
     </Carousel>
