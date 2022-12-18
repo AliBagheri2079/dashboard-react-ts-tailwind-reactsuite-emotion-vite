@@ -1,9 +1,9 @@
 import { makeObservable, observable, action, computed } from 'mobx';
-import { CarouselType } from '@/@types/types';
+import { SliderType } from '@/@types/types';
 import { getSlider } from '@/services/getSlider';
 
 class SliderStore {
-  slider: CarouselType[] = [];
+  slider: SliderType[] = [];
 
   constructor() {
     /*
@@ -21,7 +21,7 @@ class SliderStore {
     getSlider().then((slide) => (this.slider = slide));
   }
 
-  get sliderItem(): CarouselType[] {
+  get sliderItem(): SliderType[] {
     return this.slider;
   }
 }

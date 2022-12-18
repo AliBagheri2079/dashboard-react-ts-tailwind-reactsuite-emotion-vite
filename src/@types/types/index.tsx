@@ -1,9 +1,9 @@
-export type CarouselType = {
+export type SliderType = {
   id: number;
   image: string;
 };
 
-export type ShopCardType = CarouselType & {
+export type ShopCardType = SliderType & {
   title: string;
   price: number;
   description: string;
