@@ -1,4 +1,5 @@
 import Layout from '@/layouts';
+import Crypto from '@/pages/Crypto';
 import Products from '@/pages/Products';
 
 /*
@@ -8,7 +9,8 @@ import Products from '@/pages/Products';
 const ManageRouting = () => {
   return (
     <Layout>
-      <Products />
+      {/* <Products /> */}
+      <Crypto />
     </Layout>
   );
 };
