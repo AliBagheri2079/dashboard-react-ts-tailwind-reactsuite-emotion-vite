@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -11,11 +15,11 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --clr-1: #e2e7f3;
+  --clr-1: #f9fafd;
   --clr-2: #bbc4e4;
   --clr-3: #0112fc;
   --clr-4: #9297b1;
-  --clr-5: #4e4d56;
+  --clr-5: #2d2c30;
 
   color: var(--clr-1);
   background-color: var(--clr-5);
