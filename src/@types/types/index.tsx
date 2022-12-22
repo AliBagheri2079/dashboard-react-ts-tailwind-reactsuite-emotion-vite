@@ -41,7 +41,6 @@ export type CoinsListType = {
   // price_change_24h: number;
   // price_change_percentage_24h_in_currency: number;
   // roi: object;
-  // total_supply: number;
   // total_volume: number;
 };
 
