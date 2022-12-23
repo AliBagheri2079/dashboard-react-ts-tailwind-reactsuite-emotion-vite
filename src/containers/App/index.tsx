@@ -1,21 +1,26 @@
 import { FC } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { RecoilRoot } from 'recoil';
+import { Provider } from 'react-redux';
 
 import { theme } from '@/containers/GlobalEmotionStyles/theme';
 import GlobalEmotionStyles from '@/containers/GlobalEmotionStyles';
 import ManageRouting from '@/routes';
+import { store } from '@/store/rematch';
 
 const App: FC = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalEmotionStyles />
+    // {/* recoil root wrapper */}
+    <RecoilRoot>
+      {/* rematch root wrapper */}
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <GlobalEmotionStyles />
 
-      {/* Wrap recoil root on components */}
-      <RecoilRoot>
-        <ManageRouting />
-      </RecoilRoot>
-    </ThemeProvider>
+          <ManageRouting />
+        </ThemeProvider>
+      </Provider>
+    </RecoilRoot>
   );
 };
 
