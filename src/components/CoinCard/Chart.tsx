@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,8 +12,8 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
-import { getCoinMarketChart } from '@/services/getCoinMarketChart';
-import { CoinChartType } from '@/@types/types';
+import { connect } from 'react-redux';
+import { Dispatch, RootState } from '@/store/rematch';
 
 /* registerr chart js dependency */
 ChartJS.register(
@@ -110,29 +110,36 @@ const options = {
   },
 };
 
+const mapState = (state: RootState) => ({
+  coinMarketChart: state.coinMarketChart,
+});
+const mapDispatch = (dispatch: Dispatch) => ({
+  getCoinMarketChartData: (id: string) =>
+    dispatch.coinMarketChart.getCoinMarketChartData(id),
+});
+
+type StateProps = ReturnType<typeof mapState>;
+type DispatchProps = ReturnType<typeof mapDispatch>;
 type CoinChartProp = {
   id: string;
 };
+type Props = StateProps & DispatchProps & CoinChartProp;
 
-const CoinCardChart: FC<CoinChartProp> = ({ id }) => {
-  const [coinDataChart, setCoinDataChart] = useState<CoinChartType | null>();
-
+const CoinCardChart: FC<Props> = (props) => {
   useEffect(() => {
-    getCoinMarketChart({ id, vsCurrency: 'usd', days: 1 }).then((chart) => {
-      setCoinDataChart(chart);
-    });
-  }, [id]);
+    props.getCoinMarketChartData(props.id);
+  }, []);
 
   const dataChart = {
     datasets: [
       {
         fill: true,
-        label: id,
+        label: props.id,
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
         borderWidth: 1,
         radius: 0,
-        data: coinDataChart?.prices,
+        data: props.coinMarketChart.coinMarketChart?.prices,
       },
     ],
   };
@@ -140,4 +147,4 @@ const CoinCardChart: FC<CoinChartProp> = ({ id }) => {
   return <Line options={options} data={dataChart} />;
 };
 
-export default CoinCardChart;
+export default connect(mapState, mapDispatch)(CoinCardChart);
