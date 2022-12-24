@@ -2,6 +2,7 @@ import Layout from '@/layouts';
 import Products from '@/pages/Products';
 import Crypto from '@/pages/Crypto';
 import Home from '@/pages/Home';
+import NotFound from '@/components/NotFound';
 
 /*
 ? I know routes folder created for routing in server but
@@ -14,7 +15,8 @@ const ManageRouting = () => {
     //     <Crypto />
     //   </Layout>
 
-    <Home />
+    // <Home />
+    <NotFound />
   );
 };
 
