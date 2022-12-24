@@ -1,13 +1,12 @@
 import { FC } from 'react';
+import { useAtom } from 'jotai';
 
 import CoinCard from '@/components/CoinCard';
-import { CoinsListType } from '@/@types/types';
+import { coinsList as coinsListAtom } from '@/store/jotai/atom';
 
-type CoinsListProps = {
-  coinsList: CoinsListType[] | null | undefined;
-};
+const CoinsListCard: FC = () => {
+  const [coinsList] = useAtom(coinsListAtom);
 
-const CoinsListCard: FC<CoinsListProps> = ({ coinsList }) => {
   return (
     <div className="flex flex-wrap items-center justify-between px-2">
       {coinsList

@@ -11,9 +11,10 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { useAtom } from 'jotai';
 
-import { connect } from 'react-redux';
-import { Dispatch, RootState } from '@/store/rematch';
+import { coinMarketChart as coinMarketChartAtom } from '@/store/jotai/atom';
+import { getCoinMarketChart } from '@/services/getCoinMarketChart';
 
 /* registerr chart js dependency */
 ChartJS.register(
@@ -110,36 +111,29 @@ const options = {
   },
 };
 
-const mapState = (state: RootState) => ({
-  coinMarketChart: state.coinMarketChart,
-});
-const mapDispatch = (dispatch: Dispatch) => ({
-  getCoinMarketChartData: (id: string) =>
-    dispatch.coinMarketChart.getCoinMarketChartData(id),
-});
-
-type StateProps = ReturnType<typeof mapState>;
-type DispatchProps = ReturnType<typeof mapDispatch>;
-type CoinChartProp = {
+type ChartProp = {
   id: string;
 };
-type Props = StateProps & DispatchProps & CoinChartProp;
 
-const CoinCardChart: FC<Props> = (props) => {
+const CoinCardChart: FC<ChartProp> = ({ id }) => {
+  const [coinChartData, setCoinChartData] = useAtom(coinMarketChartAtom);
+
   useEffect(() => {
-    props.getCoinMarketChartData(props.id);
+    getCoinMarketChart({ id, vsCurrency: 'usd', days: 1 }).then((data) =>
+      setCoinChartData(data)
+    );
   }, []);
 
   const dataChart = {
     datasets: [
       {
         fill: true,
-        label: props.id,
+        label: id,
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
         borderWidth: 1,
         radius: 0,
-        data: props.coinMarketChart.coinMarketChart?.prices,
+        data: coinChartData?.prices,
       },
     ],
   };
@@ -147,4 +141,4 @@ const CoinCardChart: FC<Props> = (props) => {
   return <Line options={options} data={dataChart} />;
 };
 
-export default connect(mapState, mapDispatch)(CoinCardChart);
+export default CoinCardChart;

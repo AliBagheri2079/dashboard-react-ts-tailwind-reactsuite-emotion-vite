@@ -1,28 +1,23 @@
 import { FC, useEffect, useTransition } from 'react';
-import { connect } from 'react-redux';
+import { useAtom } from 'jotai';
 
 import CoinsListTable from '@/layouts/CoinsList/Table';
 import CoinsListCard from '@/layouts/CoinsList/Card';
 import CoinCardPlaceholder from '@/components/CoinCard/Placeholder';
-import { RootState, Dispatch } from '@/store/rematch';
+import { coinsList as coinsListAtom } from '@/store/jotai/atom';
+import { getCoinsList } from '@/services/getCoinsList';
 
-const mapState = (state: RootState) => ({
-  coinsList: state.coinsList,
-});
-const mapDispatch = (dispatch: Dispatch) => ({
-  getCoinsListData: () => dispatch.coinsList.getCoinsListData(),
-});
-
-type StateProps = ReturnType<typeof mapState>;
-type DispatchProps = ReturnType<typeof mapDispatch>;
-type Props = StateProps & DispatchProps;
-
-const Crypto: FC<Props> = (props) => {
+const Crypto: FC = () => {
   const [isPending, startTransition] = useTransition();
+  const [coinsList, setCoinsList] = useAtom(coinsListAtom);
 
   useEffect(() => {
     startTransition(() => {
-      props.getCoinsListData();
+      getCoinsList({
+        perPage: 10,
+        page: 1,
+        priceChangePercentage: '24h',
+      }).then((coin) => setCoinsList(coin));
     });
   }, []);
 
@@ -32,12 +27,12 @@ const Crypto: FC<Props> = (props) => {
         <CoinCardPlaceholder />
       ) : (
         <>
-          <CoinsListCard coinsList={props.coinsList.coinsList} />
-          <CoinsListTable coinsList={props.coinsList.coinsList} />
+          <CoinsListCard />
+          <CoinsListTable />
         </>
       )}
     </>
   );
 };
 
-export default connect(mapState, mapDispatch)(Crypto);
+export default Crypto;

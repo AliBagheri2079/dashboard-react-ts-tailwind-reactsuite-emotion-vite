@@ -1,14 +1,13 @@
 import React, { FC } from 'react';
 import { Avatar, Button, Table } from 'flowbite-react';
+import { useAtom } from 'jotai';
 
-import { CoinsListType } from '@/@types/types';
 import { changePriceFormat } from '@/utils/changePriceFormat';
+import { coinsList as coinsListAtom } from '@/store/jotai/atom';
 
-type CoinsListProps = {
-  coinsList: CoinsListType[] | null | undefined;
-};
+const CoinsListTable: FC = () => {
+  const [coinsList] = useAtom(coinsListAtom);
 
-const CoinsListTable: FC<CoinsListProps> = ({ coinsList }) => {
   return (
     <Table hoverable={true} className="mt-3 mb-2">
       <Table.Head>
