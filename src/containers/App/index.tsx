@@ -1,25 +1,24 @@
 import { FC } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { RecoilRoot } from 'recoil';
-import { Provider } from 'react-redux';
+import { Provider as JotaiProvider } from 'jotai';
 
 import { theme } from '@/containers/GlobalEmotionStyles/theme';
 import GlobalEmotionStyles from '@/containers/GlobalEmotionStyles';
 import ManageRouting from '@/routes';
-import { store } from '@/store/rematch';
 
 const App: FC = () => {
   return (
     // {/* recoil root wrapper */}
     <RecoilRoot>
-      {/* rematch root wrapper */}
-      <Provider store={store}>
+      {/* jotai root wrapper */}
+      <JotaiProvider>
         <ThemeProvider theme={theme}>
           <GlobalEmotionStyles />
 
           <ManageRouting />
         </ThemeProvider>
-      </Provider>
+      </JotaiProvider>
     </RecoilRoot>
   );
 };
