@@ -1,6 +1,7 @@
 import Layout from '@/layouts';
-import Crypto from '@/pages/Crypto';
 import Products from '@/pages/Products';
+import Crypto from '@/pages/Crypto';
+import Home from '@/pages/Home';
 
 /*
 ? I know routes folder created for routing in server but
@@ -8,10 +9,12 @@ import Products from '@/pages/Products';
 */
 const ManageRouting = () => {
   return (
-    <Layout>
-      {/* <Products /> */}
-      <Crypto />
-    </Layout>
+    //   <Layout>
+    //     <Products />
+    //     <Crypto />
+    //   </Layout>
+
+    <Home />
   );
 };
 

@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { RecoilRoot } from 'recoil';
 import { Provider as JotaiProvider } from 'jotai';
+import 'preline';
 
 import { theme } from '@/containers/GlobalEmotionStyles/theme';
 import GlobalEmotionStyles from '@/containers/GlobalEmotionStyles';
