@@ -2,9 +2,9 @@ import { ReactElement, SVGProps } from 'react';
 
 type ChildSVGProp = {
   name: 'circle' | 'rectangle' | 'path';
-  stroke: string;
-  strokeWidth: number;
-  fill: string;
+  stroke?: string;
+  strokeWidth?: number;
+  fill?: string;
   d?: string;
 };
 
