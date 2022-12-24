@@ -22,13 +22,13 @@ specifiers:
   eslint-plugin-react: ^7.31.11
   flowbite: ^1.5.5
   flowbite-react: ^0.3.7
-  flowbite-typography: ^1.0.3
   husky: ^8.0.2
   jotai: ^1.12.0
   lint-staged: ^13.0.4
   mobx: ^6.7.0
   mobx-react-lite: ^3.4.0
   postcss: ^8.4.20
+  preline: ^1.6.0
   prettier: ^2.8.0
   react: ^18.2.0
   react-chartjs-2: ^5.1.0
@@ -55,6 +55,7 @@ dependencies:
   jotai: 1.12.0_zavbqmrropwrojvx6ojaa4s7im
   mobx: 6.7.0
   mobx-react-lite: 3.4.0_jofyzmwkboewm6mjrhi25mngky
+  preline: 1.6.0
   react: 18.2.0
   react-chartjs-2: 5.1.0_dxa6kz4w32vmgoazz4fv7vwm2e
   react-dom: 18.2.0_react@18.2.0
@@ -78,7 +79,6 @@ devDependencies:
   autoprefixer: 10.4.13_postcss@8.4.20
   eslint: 8.28.0
   eslint-plugin-react: 7.31.11_eslint@8.28.0
-  flowbite-typography: 1.0.3_tailwindcss@3.2.4
   husky: 8.0.2
   lint-staged: 13.0.4
   postcss: 8.4.20
@@ -2211,17 +2211,6 @@ packages:
       - '@types/react'
     dev: false
 
-  /flowbite-typography/1.0.3_tailwindcss@3.2.4:
-    resolution: {integrity: sha512-UbdQFIIOb7xx2TS+QQrqr79B6ZSkSZurxYWzV0npth6Wns3/j7KfeDJoH9QFU+Zs7zjrvejNtyzgzWLWyCrdiA==}
-    peerDependencies:
-      tailwindcss: '>=3.0.0 || insiders'
-    dependencies:
-      lodash.castarray: 4.4.0
-      lodash.isplainobject: 4.0.6
-      lodash.merge: 4.6.2
-      tailwindcss: 3.2.4_postcss@8.4.20
-    dev: true
-
   /flowbite/1.5.5:
     resolution: {integrity: sha512-LWJteH6zO+6BrnerH6GEU9OFpjWmkCWi9BD3XnJdBOVevNnt7u8gW+S+4keqD5OGpHu+QU860pLzNKeNlhlf6g==}
     dependencies:
@@ -2890,12 +2879,10 @@ packages:
       p-locate: 5.0.0
     dev: true
 
-  /lodash.castarray/4.4.0:
-    resolution: {integrity: sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==}
-    dev: true
-
   /lodash.isplainobject/4.0.6:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
+    dev: false
+    optional: true
 
   /lodash.map/4.6.0:
     resolution: {integrity: sha512-worNHGKLDetmcEYDvh2stPCrrQRkP20E4l0iIS7F8EvzMqBBi7ltvFN5m1HvTf1P7Jk1txKhvFcmYsCr8O2F1Q==}
@@ -3438,6 +3425,12 @@ packages:
       nanoid: 3.3.4
       picocolors: 1.0.0
       source-map-js: 1.0.2
+
+  /preline/1.6.0:
+    resolution: {integrity: sha512-H86+auVrHhzxN5aFf44wLLL0QOiMBkhSdGdoALpWP99efFdPhtTSeZrZamUYqi9DWg/J95wJciN7aJXk8Qk5vg==}
+    dependencies:
+      '@popperjs/core': 2.11.6
+    dev: false
 
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
