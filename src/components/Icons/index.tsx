@@ -10,3 +10,5 @@ export { Sun } from './Sun';
 export { UserCircle } from './UserCircle';
 export { VerticalEllipsis } from './VerticalEllipsis';
 export { Wifi } from './Wifi';
+export { Arrow } from './Arrow';
+export { Star } from './Star';
