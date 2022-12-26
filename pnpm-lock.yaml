@@ -34,20 +34,23 @@ specifiers:
   react-chartjs-2: ^5.1.0
   react-dom: ^18.2.0
   react-redux: ^8.0.5
+  react-router-dom: ^6.6.1
   recoil: ^0.7.6
+  redux: ^4.2.0
   rsuite: ^5.23.1
   stylelint: ^14.15.0
   stylelint-config-prettier: ^9.0.4
   stylelint-config-standard: ^29.0.0
   tailwindcss: ^3.2.4
   typescript: '*'
+  usehooks-ts: ^2.9.1
   uuid: ^9.0.0
   vite: ^3.2.3
 
 dependencies:
   '@emotion/react': 11.10.5_hebjedjhazelsvuzebr6t7ng24
   '@emotion/styled': 11.10.5_5tjec44ezuvlpkchcqgxkxryqi
-  '@rematch/core': 2.2.0
+  '@rematch/core': 2.2.0_redux@4.2.0
   '@rsuite/icons': 1.0.2_biqbaboplfbrettd7655fr4n2y
   chart.js: 4.1.1
   flowbite: 1.5.5
@@ -59,9 +62,12 @@ dependencies:
   react: 18.2.0
   react-chartjs-2: 5.1.0_dxa6kz4w32vmgoazz4fv7vwm2e
   react-dom: 18.2.0_react@18.2.0
-  react-redux: 8.0.5_cn3ejhfta5lq2dae4xucvtkwvu
+  react-redux: 8.0.5_moha6x5fbqoiok2ot63p7hwafm
+  react-router-dom: 6.6.1_biqbaboplfbrettd7655fr4n2y
   recoil: 0.7.6_biqbaboplfbrettd7655fr4n2y
+  redux: 4.2.0
   rsuite: 5.23.1_biqbaboplfbrettd7655fr4n2y
+  usehooks-ts: 2.9.1_biqbaboplfbrettd7655fr4n2y
   uuid: 9.0.0
 
 devDependencies:
@@ -720,11 +726,18 @@ packages:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
     dev: false
 
-  /@rematch/core/2.2.0:
+  /@rematch/core/2.2.0_redux@4.2.0:
     resolution: {integrity: sha512-Sj3nC/2X+bOBZeOf4jdJ00nhCcx9wLbVK9SOs6eFR4Y1qKXqRY0hGigbQgfTpCdjRFlwTHHfN3m41MlNvMhDgw==}
     engines: {node: '>=10'}
     peerDependencies:
       redux: '>=4'
+    dependencies:
+      redux: 4.2.0
+    dev: false
+
+  /@remix-run/router/1.2.1:
+    resolution: {integrity: sha512-XiY0IsyHR+DXYS5vBxpoBe/8veTeoRpMHP+vDosLZxL5bnpetzI0igkxkLZS235ldLzyfkxF+2divEwWHP3vMQ==}
+    engines: {node: '>=14'}
     dev: false
 
   /@rsuite/icon-font/4.0.0:
@@ -3519,7 +3532,7 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: false
 
-  /react-redux/8.0.5_cn3ejhfta5lq2dae4xucvtkwvu:
+  /react-redux/8.0.5_moha6x5fbqoiok2ot63p7hwafm:
     resolution: {integrity: sha512-Q2f6fCKxPFpkXt1qNRZdEDLlScsDWyrgSj0mliK59qU6W5gvBiKkdMEG2lJzhd1rCctf0hb6EtePPLZ2e0m1uw==}
     peerDependencies:
       '@types/react': ^16.8 || ^17.0 || ^18.0
@@ -3549,6 +3562,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-is: 18.2.0
+      redux: 4.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
     dev: false
 
@@ -3556,6 +3570,29 @@ packages:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /react-router-dom/6.6.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-u+8BKUtelStKbZD5UcY0NY90WOzktrkJJhyhNg7L0APn9t1qJNLowzrM9CHdpB6+rcPt6qQrlkIXsTvhuXP68g==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.2.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router: 6.6.1_react@18.2.0
+    dev: false
+
+  /react-router/6.6.1_react@18.2.0:
+    resolution: {integrity: sha512-YkvlYRusnI/IN0kDtosUCgxqHeulN5je+ew8W+iA1VvFhf86kA+JEI/X/8NqYcr11hCDDp906S+SGMpBheNeYQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.2.1
+      react: 18.2.0
+    dev: false
 
   /react-window/1.8.8_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-D4IiBeRtGXziZ1n0XklnFGu7h9gU684zepqyKzgPNzrsrk7xOCxni+TCckjg2Nr/DiaEEGVVmnhYSlT2rB47dQ==}
@@ -3645,7 +3682,6 @@ packages:
     resolution: {integrity: sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==}
     dependencies:
       '@babel/runtime': 7.20.6
-    dev: true
 
   /regenerator-runtime/0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
@@ -4324,6 +4360,17 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /usehooks-ts/2.9.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-2FAuSIGHlY+apM9FVlj8/oNhd+1y+Uwv5QNkMQz1oSfdHk4PXo1qoCw9I5M7j0vpH8CSWFJwXbVPeYDjLCx9PA==}
+    engines: {node: '>=16.15.0', npm: '>=8'}
+    peerDependencies:
+      react: ^16.8.0  || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0  || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /util-deprecate/1.0.2:
