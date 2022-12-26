@@ -1,8 +1,11 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import Layout from '@/layouts';
 import Products from '@/pages/Products';
 import Crypto from '@/pages/Crypto';
-import Home from '@/pages/Home';
+import Register from '@/pages/Register';
 import NotFound from '@/components/NotFound';
+import ProtectedRoute from './ProtectedRoute';
 
 /*
 ? I know routes folder created for routing in server but
@@ -10,13 +13,24 @@ import NotFound from '@/components/NotFound';
 */
 const ManageRouting = () => {
   return (
-    //   <Layout>
-    //     <Products />
-    //     <Crypto />
-    //   </Layout>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Layout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<Products />} />
+          <Route path="crypto" element={<Crypto />} />
+        </Route>
 
-    // <Home />
-    <NotFound />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
