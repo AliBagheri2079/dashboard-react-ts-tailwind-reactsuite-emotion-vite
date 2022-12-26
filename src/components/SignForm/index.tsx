@@ -1,5 +1,12 @@
-import { FC, FormEvent } from 'react';
+import { FC, FormEvent, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import LoginModal from '../LoginModal';
+/*
+  ? you can use usehooks-ts library instead of custom hook
+  import { useLocalStorage } from 'usehooks-ts';
+*/
+import useLocalStorage from '@/hooks/useLocalStorage';
 
 type InputProp = {
   type: string;
@@ -34,11 +41,18 @@ const Input: FC<InputProp> = ({
 };
 
 const SignForm = () => {
+  const [, setLoggedin] = useLocalStorage('logged', false);
+  const navigate = useNavigate();
+
   const handleRegisterUser = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    localStorage.setItem('logged', 'true');
-    // history.replaceState()
+    setLoggedin((prevValue: boolean) => !prevValue);
+    navigate('/');
   };
+
+  useEffect(() => {
+    setLoggedin((prevValue: boolean) => prevValue);
+  }, []);
 
   return (
     <div className="relative">

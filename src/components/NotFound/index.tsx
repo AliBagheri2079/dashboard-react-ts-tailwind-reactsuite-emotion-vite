@@ -36,7 +36,10 @@ const NotFound = () => {
             />
             Get the source code
           </a>
-          <a className="content-controllers__item" href="/home">
+          <a
+            onClick={() => history.back()}
+            className="content-controllers__item"
+          >
             <SVG
               name="path"
               className="w-2.5 h-2.5"

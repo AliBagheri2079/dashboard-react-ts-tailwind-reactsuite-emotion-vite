@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 const Brand = styled('li')`
-  margin: 20px 25px 50px;
+  margin: 20px 20px 50px;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -9,45 +9,49 @@ const Brand = styled('li')`
 `;
 
 const Item = styled('li')`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1 1 50px;
+  .navbar__items {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
 
-  position: relative;
-  border-radius: 2rem 0 0 2rem;
-  padding-inline-start: 10px;
-  text-transform: capitalize;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    width: 50px;
+    font-size: 1.2rem;
+    border-radius: 2rem 0 0 2rem;
+    padding-inline-start: 25px;
+    text-transform: capitalize;
     height: 50px;
-    border-radius: 50%;
-    background-color: transparent;
-  }
 
-  &::after {
-    top: -50px;
-  }
-
-  &::before {
-    bottom: -50px;
-  }
-
-  &:hover {
-    background-color: ${(props) => props.theme.color.light};
-    color: ${(props) => props.theme.color.primary};
-
-    &::before {
-      box-shadow: 35px -35px 0 10px ${(props) => props.theme.color.light};
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: transparent;
     }
 
     &::after {
-      box-shadow: 35px 35px 0 10px ${(props) => props.theme.color.light};
+      top: -50px;
+    }
+
+    &::before {
+      bottom: -50px;
+    }
+
+    &:hover,
+    &.active {
+      background-color: ${(props) => props.theme.color.light};
+      color: ${(props) => props.theme.color.primary};
+
+      &::before {
+        box-shadow: 35px -35px 0 10px ${(props) => props.theme.color.light};
+      }
+
+      &::after {
+        box-shadow: 35px 35px 0 10px ${(props) => props.theme.color.light};
+      }
     }
   }
 `;

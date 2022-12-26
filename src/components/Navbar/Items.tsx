@@ -1,8 +1,8 @@
 import { FC, ReactElement, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { NavLink } from 'react-router-dom';
 
 import { Item } from './styled';
-import { Button } from '../Button';
 import {
   ModernHome,
   CurrencyDollar,
@@ -17,7 +17,6 @@ type NavItem = {
   path: string;
   name: string;
   icon?: ReactElement;
-  isActive?: boolean;
 };
 
 const NavbarItems: FC = () => {
@@ -27,28 +26,24 @@ const NavbarItems: FC = () => {
       path: '/',
       name: 'home',
       icon: <ModernHome />,
-      isActive: true,
     },
     {
       id: uuidv4(),
-      path: '/stock',
+      path: '/crypto',
       name: 'stock',
       icon: <CurrencyDollar />,
-      isActive: true,
     },
     {
       id: uuidv4(),
       path: '/kanban',
       name: 'kanban',
       icon: <SquareStack />,
-      isActive: true,
     },
     {
       id: uuidv4(),
       path: '/message',
       name: 'message',
       icon: <OpenMessage />,
-      isActive: false,
     },
 
     {
@@ -56,31 +51,24 @@ const NavbarItems: FC = () => {
       path: '/setting',
       name: 'setting',
       icon: <Cog />,
-      isActive: false,
     },
     {
       id: uuidv4(),
       path: '/logout',
       name: 'logout',
       icon: <RightOnRectangle />,
-      isActive: false,
     },
   ]);
 
   return (
     <>
       {items?.map(
-        ({ id, path, name, icon, isActive }): ReactElement => (
-          <Item key={id} className="navbar__items">
-            <Button
-              as="a"
-              href={path}
-              disabled={!isActive && true}
-              fontSize="1.2rem"
-            >
+        ({ id, path, name, icon }): ReactElement => (
+          <Item key={id}>
+            <NavLink to={path} className="navbar__items">
               {icon}
               <span className="nav-item">{name}</span>
-            </Button>
+            </NavLink>
           </Item>
         )
       )}
