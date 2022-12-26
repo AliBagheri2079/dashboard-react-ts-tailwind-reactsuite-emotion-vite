@@ -1,14 +1,11 @@
-import React from 'react';
+import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import { Container, Nav, Head, Section } from './styled';
 import Navigation from './Navigation';
 import Header from './Header';
 
-type Prop = {
-  children: React.ReactElement;
-};
-
-const Layout = ({ children }: Prop) => {
+const Layout: FC = () => {
   return (
     <Container>
       <Nav>
@@ -19,7 +16,9 @@ const Layout = ({ children }: Prop) => {
         <Header />
       </Head>
 
-      <Section>{children}</Section>
+      <Section>
+        <Outlet />
+      </Section>
     </Container>
   );
 };

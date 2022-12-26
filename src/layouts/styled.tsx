@@ -21,9 +21,13 @@ const Nav = styled('nav')`
   overflow: auto;
   background-color: ${(props) => props.theme.color.primary};
   color: ${(props) => props.theme.color.lightGray};
+  padding: unset;
+  padding-block: 10px;
+  padding-inline-start: 25px;
 `;
 
 const Head = styled('header')`
+  all: initial;
   grid-area: header;
 `;
 

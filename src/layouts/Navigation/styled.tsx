@@ -5,7 +5,6 @@ export const Menu = styled('menu')`
   flex-direction: column;
   gap: 30px;
   list-style: none;
-  padding-inline-start: 10px;
 
   @media (max-width: ${(props) => props.theme.size.xl}px) {
     & .nav-item,
