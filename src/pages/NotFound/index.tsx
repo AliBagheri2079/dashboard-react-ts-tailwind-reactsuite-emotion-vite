@@ -1,9 +1,15 @@
-import SVG from '../SVG';
+import { Helmet } from 'react-helmet';
+
+import SVG from '../../components/SVG';
 import './index.css';
 
 const NotFound = () => {
   return (
     <main className="not-found">
+      <Helmet>
+        <title>404 Error</title>
+      </Helmet>
+
       <header className="">
         <nav className="" aria-label="Global">
           <a className="not-found__link" href="#" aria-label="Brand">

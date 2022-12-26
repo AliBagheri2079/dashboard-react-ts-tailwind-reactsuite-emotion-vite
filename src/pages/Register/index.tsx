@@ -1,3 +1,5 @@
+import { Helmet } from 'react-helmet';
+
 import Cookie from '@/components/Cookie';
 import IntroTitle from '@/components/IntroTitle';
 import SignForm from '@/components/SignForm';
@@ -16,6 +18,9 @@ const MainRegisterContent = () => {
 const Register = () => {
   return (
     <>
+      <Helmet>
+        <title>Register</title>
+      </Helmet>
       <MainRegisterContent />
       <Cookie />
     </>

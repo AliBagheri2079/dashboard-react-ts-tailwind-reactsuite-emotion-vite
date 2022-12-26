@@ -4,7 +4,7 @@ import Layout from '@/layouts';
 import Products from '@/pages/Products';
 import Crypto from '@/pages/Crypto';
 import Register from '@/pages/Register';
-import NotFound from '@/components/NotFound';
+import NotFound from '@/pages/NotFound';
 import ProtectedRoute from './ProtectedRoute';
 
 /*
