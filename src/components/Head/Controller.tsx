@@ -1,17 +1,36 @@
+import { useEffect } from 'react';
+import { useDarkMode } from 'usehooks-ts';
+import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
+
 import { ControllerWrapper } from './styled';
 import { Button } from '../Button';
-import { Sun, UserCircle, VerticalEllipsis, Wifi } from '../Icons';
+import { UserCircle, VerticalEllipsis, Wifi } from '../Icons';
 
 const HeadController = () => {
+  const { isDarkMode, toggle } = useDarkMode();
+  const isDarkMediaMode =
+    window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  useEffect(() => {
+    if (isDarkMediaMode && isDarkMode) {
+      document.body.setAttribute('theme', 'dark');
+    } else {
+      document.body.setAttribute('theme', 'light');
+    }
+  }, [isDarkMediaMode, isDarkMode]);
+
   return (
     <ControllerWrapper>
       <Button>
-        {/* //TODO: complete at the end of project */}
         <Wifi />
       </Button>
-      <Button>
-        {/* //TODO: complete at the end of project */}
-        <Sun />
+      <Button onClick={toggle}>
+        {isDarkMode ? (
+          <SunIcon width={20} height={20} />
+        ) : (
+          <MoonIcon width={20} height={20} />
+        )}
       </Button>
       <Button>
         <UserCircle />

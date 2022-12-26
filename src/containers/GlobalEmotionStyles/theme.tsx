@@ -5,11 +5,11 @@ type ThemeProp = {
 
 export const theme: ThemeProp = {
   color: {
-    light: '#e2e7f3',
+    light: '#f9fafd',
     lightGray: '#bbc4e4',
     primary: '#0112fc',
     gray: '#9297b1',
-    darkGray: '#4e4d56',
+    darkGray: '#2d2c30',
   },
   size: {
     xs: 0,
