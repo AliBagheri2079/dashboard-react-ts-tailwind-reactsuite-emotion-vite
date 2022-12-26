@@ -1,5 +1,6 @@
 import { FC, useEffect, useTransition } from 'react';
 import { useAtom } from 'jotai';
+import { useDocumentTitle } from 'usehooks-ts';
 
 import CoinsListTable from '@/layouts/CoinsList/Table';
 import CoinsListCard from '@/layouts/CoinsList/Card';
@@ -9,7 +10,8 @@ import { getCoinsList } from '@/services/getCoinsList';
 
 const Crypto: FC = () => {
   const [isPending, startTransition] = useTransition();
-  const [coinsList, setCoinsList] = useAtom(coinsListAtom);
+  const [, setCoinsList] = useAtom(coinsListAtom);
+  useDocumentTitle('Crypto');
 
   useEffect(() => {
     startTransition(() => {
