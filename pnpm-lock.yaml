@@ -6,11 +6,13 @@ specifiers:
   '@emotion/eslint-plugin': ^11.10.0
   '@emotion/react': ^11.10.5
   '@emotion/styled': ^11.10.5
+  '@heroicons/react': ^2.0.13
   '@rematch/core': ^2.2.0
   '@rsuite/icons': ^1.0.2
   '@types/node': ^18.11.10
   '@types/react': ^18.0.24
   '@types/react-dom': ^18.0.8
+  '@types/react-helmet': ^6.1.6
   '@types/react-redux': ^7.1.24
   '@types/uuid': ^9.0.0
   '@typescript-eslint/eslint-plugin': ^5.45.0
@@ -33,6 +35,7 @@ specifiers:
   react: ^18.2.0
   react-chartjs-2: ^5.1.0
   react-dom: ^18.2.0
+  react-helmet: ^6.1.0
   react-redux: ^8.0.5
   react-router-dom: ^6.6.1
   recoil: ^0.7.6
@@ -50,6 +53,7 @@ specifiers:
 dependencies:
   '@emotion/react': 11.10.5_hebjedjhazelsvuzebr6t7ng24
   '@emotion/styled': 11.10.5_5tjec44ezuvlpkchcqgxkxryqi
+  '@heroicons/react': 2.0.13_react@18.2.0
   '@rematch/core': 2.2.0_redux@4.2.0
   '@rsuite/icons': 1.0.2_biqbaboplfbrettd7655fr4n2y
   chart.js: 4.1.1
@@ -62,6 +66,7 @@ dependencies:
   react: 18.2.0
   react-chartjs-2: 5.1.0_dxa6kz4w32vmgoazz4fv7vwm2e
   react-dom: 18.2.0_react@18.2.0
+  react-helmet: 6.1.0_react@18.2.0
   react-redux: 8.0.5_moha6x5fbqoiok2ot63p7hwafm
   react-router-dom: 6.6.1_biqbaboplfbrettd7655fr4n2y
   recoil: 0.7.6_biqbaboplfbrettd7655fr4n2y
@@ -77,6 +82,7 @@ devDependencies:
   '@types/node': 18.11.10
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
+  '@types/react-helmet': 6.1.6
   '@types/react-redux': 7.1.24
   '@types/uuid': 9.0.0
   '@typescript-eslint/eslint-plugin': 5.45.0_czs5uoqkd3podpy6vgtsxfc7au
@@ -636,6 +642,14 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
+  /@heroicons/react/2.0.13_react@18.2.0:
+    resolution: {integrity: sha512-iSN5XwmagrnirWlYEWNPdCDj9aRYVD/lnK3JlsC9/+fqGF80k8C7rl+1HCvBX0dBoagKqOFBs6fMhJJ1hOg1EQ==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /@humanwhocodes/config-array/0.11.7:
     resolution: {integrity: sha512-kBbPWzN8oVMLb0hOUYXhmxggL/1cJE6ydvjDIGi9EnAGUyA7cLVKQg+d/Dsm+KZwx2czGHrCmMVLiyg8s5JPKw==}
     engines: {node: '>=10.10.0'}
@@ -823,6 +837,12 @@ packages:
     resolution: {integrity: sha512-qnVvHxASt/H7i+XG1U1xMiY5t+IHcPGUK7TDMDzom08xa7e86eCeKOiLZezwCKVxJn6NEiiy2ekgX8aQssjIKg==}
     dependencies:
       '@types/react': 18.0.25
+
+  /@types/react-helmet/6.1.6:
+    resolution: {integrity: sha512-ZKcoOdW/Tg+kiUbkFCBtvDw0k3nD4HJ/h/B9yWxN4uDO8OkRksWTO+EL+z/Qu3aHTeTll3Ro0Cc/8UhwBCMG5A==}
+    dependencies:
+      '@types/react': 18.0.25
+    dev: true
 
   /@types/react-redux/7.1.24:
     resolution: {integrity: sha512-7FkurKcS1k0FHZEtdbbgN8Oc6b+stGSfZYjQGicofJ0j4U0qIn/jaSvnP2pLwZKiai3/17xqqxkkrxTgN8UNbQ==}
@@ -3499,6 +3519,22 @@ packages:
       scheduler: 0.23.0
     dev: false
 
+  /react-fast-compare/3.2.0:
+    resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
+    dev: false
+
+  /react-helmet/6.1.0_react@18.2.0:
+    resolution: {integrity: sha512-4uMzEY9nlDlgxr61NL3XbKRy1hEkXmKNXhjbAIOVw5vcFrsdYbH2FEwcNyWvWinl103nXgzYNlns9ca+8kFiWw==}
+    peerDependencies:
+      react: '>=16.3.0'
+    dependencies:
+      object-assign: 4.1.1
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-fast-compare: 3.2.0
+      react-side-effect: 2.1.2_react@18.2.0
+    dev: false
+
   /react-icons/4.7.1_react@18.2.0:
     resolution: {integrity: sha512-yHd3oKGMgm7zxo3EA7H2n7vxSoiGmHk5t6Ou4bXsfcgWyhfDKMpyKfhHR6Bjnn63c+YXBLBPUql9H4wPJM6sXw==}
     peerDependencies:
@@ -3591,6 +3627,14 @@ packages:
       react: '>=16.8'
     dependencies:
       '@remix-run/router': 1.2.1
+      react: 18.2.0
+    dev: false
+
+  /react-side-effect/2.1.2_react@18.2.0:
+    resolution: {integrity: sha512-PVjOcvVOyIILrYoyGEpDN3vmYNLdy1CajSFNt4TDsVQC5KpTijDvWVoR+/7Rz2xT978D8/ZtFceXxzsPwZEDvw==}
+    peerDependencies:
+      react: ^16.3.0 || ^17.0.0 || ^18.0.0
+    dependencies:
       react: 18.2.0
     dev: false
 
