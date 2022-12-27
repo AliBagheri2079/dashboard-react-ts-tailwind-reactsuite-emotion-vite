@@ -16,6 +16,7 @@
     "@heroicons/react": "^2.0.13",
     "@rematch/core": "^2.2.0",
     "@rsuite/icons": "^1.0.2",
+    "@tanstack/react-router": "0.0.1-beta.38",
     "chart.js": "^4.1.1",
     "flowbite": "^1.5.5",
     "flowbite-react": "^0.3.7",
