@@ -1,5 +1,5 @@
-import { FC, FormEvent, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { FC, FormEvent } from 'react';
+import { useRouter } from '@tanstack/react-router';
 
 import LoginModal from '../LoginModal';
 /*
@@ -42,17 +42,13 @@ const Input: FC<InputProp> = ({
 
 const SignForm = () => {
   const [, setLoggedin] = useLocalStorage('logged', false);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleRegisterUser = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoggedin((prevValue: boolean) => !prevValue);
-    navigate('/');
+    router.history.replace('/');
   };
-
-  useEffect(() => {
-    setLoggedin((prevValue: boolean) => prevValue);
-  }, []);
 
   return (
     <div className="relative">

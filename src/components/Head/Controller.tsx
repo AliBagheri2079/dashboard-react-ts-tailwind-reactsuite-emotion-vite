@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useDarkMode } from 'usehooks-ts';
 import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
 
@@ -8,17 +7,6 @@ import { UserCircle, VerticalEllipsis, Wifi } from '../Icons';
 
 const HeadController = () => {
   const { isDarkMode, toggle } = useDarkMode();
-  const isDarkMediaMode =
-    window.matchMedia &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  useEffect(() => {
-    if (isDarkMediaMode && isDarkMode) {
-      document.body.setAttribute('theme', 'dark');
-    } else {
-      document.body.setAttribute('theme', 'light');
-    }
-  }, [isDarkMediaMode, isDarkMode]);
 
   return (
     <ControllerWrapper>

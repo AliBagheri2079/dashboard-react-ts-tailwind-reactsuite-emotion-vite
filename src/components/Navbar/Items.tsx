@@ -1,6 +1,6 @@
 import { FC, ReactElement, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { NavLink } from 'react-router-dom';
+import { Link } from '@tanstack/react-router';
 
 import { Item } from './styled';
 import {
@@ -65,10 +65,10 @@ const NavbarItems: FC = () => {
       {items?.map(
         ({ id, path, name, icon }): ReactElement => (
           <Item key={id}>
-            <NavLink to={path} className="navbar__items">
+            <Link to={path} search={{}} params={{}} className="navbar__items">
               {icon}
               <span className="nav-item">{name}</span>
-            </NavLink>
+            </Link>
           </Item>
         )
       )}

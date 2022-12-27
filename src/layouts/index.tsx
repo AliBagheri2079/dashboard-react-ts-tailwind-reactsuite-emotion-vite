@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet } from '@tanstack/react-router';
 
 import { Container, Nav, Head, Section } from './styled';
 import Navigation from './Navigation';
