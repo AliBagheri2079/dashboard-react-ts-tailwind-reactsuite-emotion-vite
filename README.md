@@ -1,4 +1,4 @@
-# Demo React Dashboard
+# [Demo React Dashboard](https://react-ts-dashboard.netlify.app/)
 
 <img src="public/Screenshot.png" alt="React Dashboard screenshot"/>
 
