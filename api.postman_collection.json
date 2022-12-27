@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "e39d390a-02b3-457c-9d9b-2e339419fcf5",
+		"name": "Dashboard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17158902"
+	},
+	"item": [
+		{
+			"name": "Coin Gecko",
+			"item": [
+				{
+					"name": "getAllCoinsList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=&order=market_cap_desc&per_page=3&page=1&sparkline=false&price_change_percentage=24h",
+							"protocol": "https",
+							"host": [
+								"api",
+								"coingecko",
+								"com"
+							],
+							"path": [
+								"api",
+								"v3",
+								"coins",
+								"markets"
+							],
+							"query": [
+								{
+									"key": "vs_currency",
+									"value": "usd"
+								},
+								{
+									"key": "ids",
+									"value": ""
+								},
+								{
+									"key": "order",
+									"value": "market_cap_desc"
+								},
+								{
+									"key": "per_page",
+									"value": "3"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "sparkline",
+									"value": "false"
+								},
+								{
+									"key": "price_change_percentage",
+									"value": "24h"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCoinMarketChart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"coingecko",
+								"com"
+							],
+							"path": [
+								"api",
+								"v3",
+								"coins",
+								"bitcoin",
+								"market_chart"
+							],
+							"query": [
+								{
+									"key": "vs_currency",
+									"value": "usd"
+								},
+								{
+									"key": "days",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fake Store",
+			"item": [
+				{
+					"name": "getAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fakestoreapi.com/products",
+							"protocol": "https",
+							"host": [
+								"fakestoreapi",
+								"com"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fakestoreapi.com/products/categories",
+							"protocol": "https",
+							"host": [
+								"fakestoreapi",
+								"com"
+							],
+							"path": [
+								"products",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductsInSpecificCategory",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " You can also use limit(Number) and sort(asc|desc) as a query string to get your ideal results "
+						},
+						"url": {
+							"raw": "https://fakestoreapi.com/products/category/jewelery",
+							"protocol": "https",
+							"host": [
+								"fakestoreapi",
+								"com"
+							],
+							"path": [
+								"products",
+								"category",
+								"jewelery"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "limitResults",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fakestoreapi.com/products?limit=5",
+							"protocol": "https",
+							"host": [
+								"fakestoreapi",
+								"com"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sortResults",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fakestoreapi.com/products?sort=desc",
+							"protocol": "https",
+							"host": [
+								"fakestoreapi",
+								"com"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "desc",
+									"description": " Default value is in ascending mode, you can use with 'desc' or 'asc' as you want. "
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
